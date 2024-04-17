@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import logo from '/public/mint.svg'; // Replace with your logo file path
+import ticketImage from '/public/ticketImage.jpg' 
 
 const issueTicket = async (email: string) => {
   const response = await fetch('/api/issue', {
@@ -28,18 +29,17 @@ export default function BuyTicket() {
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+    <div style={{minHeight: '100vh', backgroundColor: '#f5f5f5',}}>
      
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '2rem' }}>
-      <div>
-        <Image src={logo} alt="Logo" width={200} height={200} />
+      <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '8rem'}}>
+        <div style={{justifyContent: 'center', minHeight: '40vh', backgroundColor: '#ffffff', padding: '0.5rem', borderRadius: '0.5rem', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '400px', width: '100%' }}>
+        <div style={{marginTop: '0.1rem'}}>
+        <Image src={logo} alt="Logo" width={200} height={60} />
+        <div style={{marginTop: '5rem', marginBottom: '2rem', marginLeft:'2.2rem', borderRadius:'.3rem'}}> <Image src={ticketImage} alt="ticketImage" width={320} height={320} style={{ borderRadius: '20px', border: '3px solid #606060'}} /> </div>
       </div>
-      <h1 style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', color: '#333', marginBottom: '2rem' }}>Book Your Tickets</h1>
-
-        <div style={{ backgroundColor: '#ffffff', padding: '2rem', borderRadius: '0.5rem', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '400px', width: '100%' }}>
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold', color: '#333333' }}>Email:</label>
+            <div style={{ margin: '1rem' }}>
+              <label style={{ display: 'block', marginTop: '2rem', marginBottom: '0.5rem', fontWeight: 'bold', color: '#333333' }}>Email:</label>
               <input
                 type="email"
                 placeholder='mail@crossmint.com'
@@ -54,7 +54,7 @@ export default function BuyTicket() {
               style={{
                 width: 'calc(100% - 1rem)',
                 padding: '0.75rem',
-                backgroundColor: '#4CAF50',
+                backgroundColor: '#04AA6D',
                 color: '#ffffff',
                 border: 'none',
                 borderRadius: '0.25rem',
@@ -64,7 +64,7 @@ export default function BuyTicket() {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#45a049')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#4CAF50')}
             >
-              Submit
+              Buy Your Ticket
             </button>
           </form>
         </div>
