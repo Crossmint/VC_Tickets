@@ -1,8 +1,8 @@
 import SendGridMailer from "@sendgrid/mail";
-
+import { template } from "./email_template";
 export async function sendEmail(credential: any, pass: string, email: string) {
     SendGridMailer.setApiKey(process.env.SD_API || "");
-    const payload = JSON.stringify(credential) + "\n" + pass;
+    const filled = template.replace("{LINK_PLACEHOLDER}", pass);
     try {
         await SendGridMailer.send({
             to: email,
@@ -10,7 +10,7 @@ export async function sendEmail(credential: any, pass: string, email: string) {
                 email: "mailer@crossmint.io",
                 name: "Crossmint",
             },
-            text: payload,
+            html: filled,
             subject: "Ticket",
         });
     } catch (error: any) {
