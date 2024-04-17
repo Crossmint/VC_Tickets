@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -46,4 +49,21 @@ export default function BuyTicket() {
       </form>
     </div>
   );
-}
+} 
+
+<div class="flex justify-center items-center min-h-screen bg-background-grey">
+  <div class="w-[594px] h-[736px] bg-background-grey border-[#E0E0E0] border-[5px] rounded-[51px] shadow-lg flex flex-col items-center py-8 px-4">
+    <!-- Logo -->
+    <div class="w-full flex justify-center mb-16">
+      <img src="path/to/logo.png" alt="Logo" style="width: 154px; height: 49px;">
+    </div>
+    <!-- Image -->
+    <div class="w-full flex justify-center mb-16">
+      <img src="path/to/image.jpg" alt="Sample Image" style="width: 320px; height: 320px;">
+    </div>
+    <!-- Button -->
+    <button class="bg-dark-green hover:bg-dark-green-900 text-white font-bold py-2 px-4 rounded-full" style="width: 161px; height: 83px;">
+      Click to Buy
+    </button>
+  </div>
+</div>
