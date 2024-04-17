@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import logo from '/public/mint.svg'; // Replace with your logo file path
+import logo from '/public/mint.svg'; 
 
 const issueTicket = async (email: string) => {
   const response = await fetch('/api/issue', {
